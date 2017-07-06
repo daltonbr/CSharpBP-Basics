@@ -56,6 +56,66 @@ Classes are made of:
 * underscores
 * large classes
 
-## Singleton
+### Namespaces
+Used to:
+* Provide a unique address
+* Organize classes into a logical hierarchy
+  
+#### Namespace Best Practices
+**DO**:
+* <company>.<technology>.<feature>
+    Acme.Wpf.Pm
+    Microsoft.Office.Interop.PowerPoint
+* Use PascalCasing
 
-##Static Class
+**AVOID**:
+* Using "System"
+* Using a class name (confusing)
+
+### Static Class
+* Only static members
+* Can not instantiate a static class
+* Provides a container for **utility** features
+* Can't implement interface, can't inherit from a static class
+
+**DO**:
+* Use sparingly
+* use for common code library components when needed
+**AVOID**:
+* Using as a miscellaneous bucket of ad-hoc methods (Every class should have a purpose)
+
+### Singleton (pattern)
+ * Provides *only one instance*.
+ * *private* constructor(s)
+ * Static property provides the one instance
+ * Instance accessed with User.Instance
+
+ #### Singletons vs Static Class (advantages)
+ * A singleton has an **instance**
+ * A singleton can have **child objects**
+ * support OOP features
+    - can implement an interface
+    - can be inherited
+
+### FAQ
+* What is the difference between a property and a method?
+- Properties are the gate-keepers, providing access to data
+- Methods are the operations
+
+* What is a constructor?
+- A method executed when a instance is created from a class
+
+* What is the purpose of a **namespace**?
+- Organize classes into a logical hierarchy
+- Prevent class name collisions
+
+* What is a static class?
+- A class that cannot be instantiated
+- It's best for use with common code libraries
+
+* What is a singleton?
+- A class that provides a single instance of itself (a famous design pattern)
+
+* What is the difference between a static class and a singleton?
+- A static class cannot be instantiate
+  A singleton can instantiate itself and provide that instance
