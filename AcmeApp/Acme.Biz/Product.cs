@@ -11,11 +11,12 @@ namespace Acme.Biz
     /// </summary>
     public class Product
     {
+        #region Constructors
         public Product()
         {
             Console.WriteLine("Product instance created");
         }
-
+        
         public Product(int productId, string productName, string description) : this()
         {
             this.ProductId = productId;
@@ -24,7 +25,9 @@ namespace Acme.Biz
 
             Console.WriteLine("Product instance has a name: " + ProductName);
         }
+        #endregion
 
+        #region Properties
         private string productName;
 
         public string ProductName
@@ -46,6 +49,7 @@ namespace Acme.Biz
             get { return productId; }
             set { productId = value; }
         }
+        #endregion
 
         public string SayHello()
         {
