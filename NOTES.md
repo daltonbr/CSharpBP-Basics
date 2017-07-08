@@ -118,4 +118,75 @@ Used to:
 
 * What is the difference between a static class and a singleton?
 - A static class cannot be instantiate
-  A singleton can instantiate itself and provide that instance
+  A singleton can instantiate itself and provide that instance 
+
+  ## Accessing and Using Classes
+
+  To use class from another namespace we must add that class to the recipient's references
+  and we have two following options:
+
+* use a fully qualified class name: e.g. Acme.Common.EmailService()
+* add a 'using directive to the projet: e.g. using Acme.Common;
+
+* References must be one way
+* Avoid use of the 'using static' directive
+
+### Object Initialization
+
+* Setting properties
+    When populating from database values
+    When modifying properties
+
+* Parameterized constructor
+    When setting the basic set of properties
+
+* Object initializers
+    When readability is important
+    When initializing a subset or superset of properties
+
+### Lazy Loading
+    We wait to load or instantiate a related object until it is actually needed
+
+### Null Checking
+    **Classic**
+    if (currentProduct != null && currentProduct.ProductVendor != null) {
+        var companyName = currentProduct.ProductVendor.CompanyName;
+    }
+
+    **Null Conditional Operators** C#6 (VisualStudio 2015+)
+    
+    var companyName = currentProduct?.ProductVendor?.CompanyName;
+    
+    * '?.' Is the null-conditional operator
+    * Called the "Elvis operator"
+    * If the variable on the left side is null, then we continue with the dot
+    * If the variable on the left side is not null, then we continue with the dot
+    * "If null then null; if not the dot" - Mads Torgersen, C# Language PM
+
+### FAQ
+* What is the difference between an object and a class?
+    - A class is a template that specifies the data and operations for an entity
+    - An object is an instance of that class created at runtime using the new keyword
+
+* What is lazy loading and when would you use it?
+    - Instantiating related objects when they are needed and not before
+    - This often involves creating the instance in the property getter for the related object
+
+## Defining Fields Aprropriately
+
+### Backing Fields
+    A variable in a class, holds data for each 
+    Data Encapsulation / Information Hiding (Object's data is only accessible to that object)
+    Fields are private
+    Accessible outside of the class through property getters and setters
+### Nullable Types
+    - Allows definition of a value OR null
+    - Specified with a "?" on the type. e.g. private DateTime? availabilityDate;
+    - Distinguishes "not set" from the default value
+### Constants
+
+### Read-Only Fields
+
+### Constants vs Read-Only
+
+### FAQ
