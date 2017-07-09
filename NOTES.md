@@ -179,14 +179,52 @@ Used to:
     Data Encapsulation / Information Hiding (Object's data is only accessible to that object)
     Fields are private
     Accessible outside of the class through property getters and setters
+
 ### Nullable Types
     - Allows definition of a value OR null
     - Specified with a "?" on the type. e.g. private DateTime? availabilityDate;
     - Distinguishes "not set" from the default value
+
 ### Constants
+    - A "compile-time" constant
+    - const keyword
+    - must be a Data type (numbers, boolean or string)
+    - Defined in a class
+    - Holds a hard-coded value that does not change
+    - Must be assigned to an expression that can be fully evaluated at compile time
+    - Compiled into every location that references it
+    - Are static
+    - PascalCasing are more accepted today than all upper case
 
 ### Read-Only Fields
-
-### Constants vs Read-Only
+    - A "runtime" constant value
+    - A variable in a class
+    - Holds a value that is initialized and then not changed
+    - Must be initialized (in the declaration OR in a constructor)
+    - Optional accessibility modifier
+    - Optional static keyword
+    - readonly keyword
+    - Data Type
+    - PascalCasing
+    - Use static if the constant value is valid for all instances
 
 ### FAQ
+* Explain the **data encapsulation principle**
+    - An object's data should be accessible only to the object
+    - Backing fields containing the object data should marked as private
+
+* What is a **backing field**?
+    - A variable in a class used to retain each object's data
+
+* When should you use a backing field?
+    - For every data field retained for an object
+
+* when should you use a **constant**?
+    - When defining a field with a simple data type that will never change
+
+* when should you use a **read-only field**?
+    -When defining a field that is initialized from a file, table, or code but should not then be changed anywhere else in the application
+
+* What is the difference between a constant and a read-only field?
+    - A constant: is static, assigned on the declaration, assigned to an expression that is fully evaluated at compile time
+    - read-only field: can be static or non-static, assigned in the declaration or in a constructor, assigned to any valid expression
