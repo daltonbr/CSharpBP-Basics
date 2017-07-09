@@ -228,3 +228,46 @@ Used to:
 * What is the difference between a constant and a read-only field?
     - A constant: is static, assigned on the declaration, assigned to an expression that is fully evaluated at compile time
     - read-only field: can be static or non-static, assigned in the declaration or in a constructor, assigned to any valid expression
+
+## Creating good methods
+
+### Property Accessibility
+
+    **public**: accessible from anywhere
+    **protected**: used by the inherited classes
+    **internal**: limits access to only the components in which the propery is defined
+    **protected**: internal: limits access to the same component and to inherited classes
+    **private**: limits access to only the class in which the property is declared
+
+    - the getter **OR** the setter can also have accessibility modifiers, **but not both**
+
+    Rule of thumb:
+    Select the **most restrictive** accessibility that still gets the job done
+
+### Expression-Bodied Properties
+
+public string FullName{
+    get { return FirstName + " " + Lastname; }
+}
+
+public string FullName => FirstName + " " + Lastname;       // C#6 +
+
+* => is called a "fat arrow", but technically it is called a **lambda operator**
+
+### Benefits of properties
+    - Fine grained access control
+    - Execute code
+
+### FAQ
+* What is the primary purpose of a **property**?
+    - To guard access to the fields of the class
+    - And optionally provide a location for logic
+
+* What are **auto-implemented** properties?
+    - Short cut syntax for defining an implict backing field with its associated property getter and setter
+
+* When **should** you use an auto-implemented property?
+    - When creating simple properties for a class
+
+* When **shouldn't** you use an auto-implemented property?
+    - If the property requires any code in the getter or setter
