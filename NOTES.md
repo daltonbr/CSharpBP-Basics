@@ -271,3 +271,120 @@ public string FullName => FirstName + " " + Lastname;       // C#6 +
 
 * When **shouldn't** you use an auto-implemented property?
     - If the property requires any code in the getter or setter
+
+## Creating Good Methods
+* Identify the problem
+* Define the single purpose
+* Specify the inputs and outputs
+* State any assumption
+* Consider the errors that could occur
+
+### Building a Method
+    - Optional accessibility modifier (Default is private)
+    - Return type (void if no return value)
+    - Method name (PascalCasing), ofter verbs + noun
+    - Parameter list (Empty parenthesis if no parameters)
+
+e.g.: public bool PlaceOrder(Product product, int quantity)
+
+"The first rule of functions is that they should be **small**.
+The second rule of functions is that they should be **smaller than that**.
+Functions should not be 100 lines long. Functions should hardly ever be 20 lines long."
+- Robert Martin
+"Clean Code: A handbook of agile software craftsmanship"
+
+**Do:**
+- Keep methods short
+- Use white space
+- Use guard clauses
+- Return an expect result (use an object to return multiple values)
+- Implement exception handling
+
+**Avoid:**
+- void methods (at least we can use a flag)
+
+### XML Document Comment
+    * Optional, but it is a good practive to include this
+    * Used by to populate intelisense
+
+/// <summary>
+/// Sends a product order to the vendor
+/// <summary>
+/// <param name="product">Product to order.</param>
+/// <param name="quantity">Quantity of the product to order.</param>
+/// <returns></returns>
+public bool PlaceOrder(Product product, int quantity)
+
+### Property or Method
+Properties should not change the state of an object, 
+
+### FAQ
+* What is the primary purpose of a **method**?
+    - To implement the logic required for specific behavior or funcionality in a class
+
+* What is the difference between a parameter and an argument:
+    - A **parameter** is part of the method signature
+    - An **argument** is part of the method call
+
+* What is the method **overloading**?
+    - Methods with the same name and purpose but different signatures
+
+* What is method **chaining**?
+    - One method overload calls another overload to prevent repeated code
+
+* When is best to use method overloading vs method overriding?
+    - Use **overloding** when one method requires multiple signatures
+    - Use **overriding** when replacing a method defined higher up the object hierarchy 
+
+## Specifying clear method parameters
+### FAQ
+* What is a **named argument** and when should it be used?
+    - A named argument uses the parameter name when calling the method
+    - Used to clarify the purpose of an argument and define arguments without concern for their position in the parameter list
+
+* How is an **optional parameter** defined?
+    - By specifyinga default value
+
+* What is the different between passing an argument by value vs. by reference?
+    - When passed **by value** (default), the value of the argument is passed to the method
+    - When passed **by reference** (using ref or out), the variable is effectively passed to the method.
+    - Because of this, passing by reference enables the method to change the value of the parameter and have that change
+    reflected in the calling code
+
+* What is the difference between ref and out?
+    - A **ref** parameter requires that the argument be initialized before it is passed
+        The method can modify the value for the ref parameter
+    - An **out** parameter must be declared, but not initialized before it is passed
+        The method **must** provide a value for the out parameter
+
+## Handling Strings
+### FAQ
+* What does it mean to say that C# strings are **immutable**?
+    - It means that strings cannot be modified once they are created
+
+* Is a string a value type or a reference type?
+    - A string is a **reference** type
+    - That acts like a **value** type
+
+* What is the best way to check for null strings?
+    - It depends
+    - Using String.IsNullOrWhiteSpace is great when checking nulls for a code block
+    - Using the new C#6 null-conditional operator is great for code statements
+
+* What is the benefits of using **StingBuilder**?
+    - The .NET StringBuilder class is **mutable**, meaning that it can be readily changed.
+    - Using StringBuilder is therefore more efficient when appending lots of strings.
+
+## Final Words
+"The ratio of time spent reading (code) versus writing is well over 10 to 1...
+(therefore) making it easy to read makes it easier to write."
+    
+"Clean code always looks like it ws written by someone who cares."
+    - Robert Martin "Clean Code"
+
+Clean Code
+* Easy to read
+* Clear intent
+* Simple
+* Minimal
+* Thoughtful
